@@ -13,21 +13,11 @@ class HomeView extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           leadingWidth: 15,
-          leading: InkWell(
-            onTap: () {
-              showModalBottomSheet(
-                backgroundColor: Colors.transparent,
-                context: context,
-                builder: (context) => SettingButton(),);
-            },
-            child: Container(
-                padding: const EdgeInsets.only(left: 15),
-                child: InkWell(
-                    onTap: () {
-                      showModalBottomSheet(context: context,
-                        builder: (context) => SettingButton(),);
-                    },
-                    child: const Icon(Icons.settings))),
+          leading:GestureDetector(
+              onTap: () =>  SettingButton(),
+              child: Icon(
+                Icons.menu,  // add custom icons also
+              )
           ),
           title: const Row(
               mainAxisAlignment: MainAxisAlignment.center,

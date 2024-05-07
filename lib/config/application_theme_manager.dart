@@ -13,7 +13,7 @@ class ApplicationThemeManager {
           iconTheme: IconThemeData(color: lightPrimaryColor),
           backgroundColor: Colors.transparent,
           titleTextStyle: TextStyle(
-            fontSize: 25,
+            fontSize: 22,
             color: lightPrimaryColor,
             fontFamily: "Poppins",
             fontWeight: FontWeight.bold,
@@ -113,27 +113,27 @@ class ApplicationThemeManager {
           fontFamily: "Poppins",
           fontSize: 30,
           fontWeight: FontWeight.bold,
-          color: darkPrimaryColor),
+          color: Colors.white),
       bodyLarge: TextStyle(
           fontFamily: "Poppins",
           fontSize: 25,
           fontWeight: FontWeight.bold,
-          color: darkPrimaryColor),
+          color: Colors.white),
       bodyMedium: TextStyle(
           fontFamily: "Poppins",
           fontSize: 20,
           fontWeight: FontWeight.bold,
-          color: darkPrimaryColor),
+          color: Colors.white),
       bodySmall: TextStyle(
           fontFamily: "Poppins",
           fontSize: 14,
           fontWeight: FontWeight.normal,
-          color: darkPrimaryColor),
+          color: Colors.white),
       displayLarge: TextStyle(
           fontFamily: "Poppins",
           fontSize: 15,
           fontWeight: FontWeight.normal,
-          color: darkPrimaryColor),
+          color: Colors.white),
     ),
   );
 }

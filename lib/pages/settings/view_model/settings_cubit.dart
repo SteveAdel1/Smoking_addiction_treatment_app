@@ -1,20 +1,15 @@
 import 'package:app/pages/settings/view_model/settings_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+class SettingsCubit extends Cubit<ThemeState> {
+  SettingsCubit() : super(ThemeState(isDarkMode: false)); // Default to Light mode
 
-class SettingsCubit extends Cubit<SettingsState> {
-  SettingsCubit() :super(LightState());
-
-  ThemeMode currentTheme = ThemeMode.light;
-  bool isDark() {
-    return currentTheme == ThemeMode.dark;
+  void toDarkMode() {
+    emit(ThemeState(isDarkMode: true));
   }
 
-  changeThemeMode(ThemeMode newThemeMode) {
-    print(newThemeMode);
-    if (newThemeMode == currentTheme) return;
-    currentTheme = newThemeMode;
-    emit(DarkState());
-    //emit(LightState());
+  void toLightMode() {
+    emit(ThemeState(isDarkMode: false));
   }
+
 }

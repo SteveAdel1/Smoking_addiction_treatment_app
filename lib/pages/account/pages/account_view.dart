@@ -1,6 +1,8 @@
 import 'package:app/config/constants/constants.dart';
 import 'package:app/pages/account/widgets/account_items.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../settings/view_model/settings_cubit.dart';
 
 class AccountView extends StatelessWidget {
   const AccountView({super.key});
@@ -17,14 +19,6 @@ class AccountView extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            // ClipRRect(
-            //   clipBehavior: Clip.antiAlias,
-            //     borderRadius: BorderRadius.circular(120),
-            //     child:SizedBox(
-            //         width: 50,
-            //         height: 120,
-            //         child: Image.asset("assets/images/profile.jpg",
-            //           fit: BoxFit.fill,)) ),
             CircleAvatar(
               radius: 130,
              // maxRadius: 100,
@@ -43,25 +37,31 @@ class AccountView extends StatelessWidget {
                   style: Constants.theme.textTheme.bodyMedium,
                 )),
             AccountItems(
-                child: Icon(Icons.speaker_notes_outlined),
+                child: Icon(Icons.speaker_notes_outlined,
+                    color:BlocProvider.of<SettingsCubit>(context).state.isDarkMode ?
+                Colors.white : Colors.black),
                 text: "Daily Rrminder"),
             Divider(
               color: Colors.black,
               thickness: 2,
             ),
             AccountItems(
-                child: Icon(Icons.slideshow), text: "User Interface Settings"),
+                child: Icon(Icons.slideshow,color:BlocProvider.of<SettingsCubit>(context).state.isDarkMode ?
+                Colors.white : Colors.black), text: "User Interface Settings"),
             Divider(
               color: Colors.black,
               thickness: 2,
             ),
             AccountItems(
-                child: Icon(Icons.refresh_outlined), text: "Delete My Data"),
+                child: Icon(Icons.refresh_outlined,color:BlocProvider.of<SettingsCubit>(context).state.isDarkMode ?
+                Colors.white : Colors.black), text: "Delete My Data"),
             Divider(
               color: Colors.black,
               thickness: 2,
             ),
-            AccountItems(child: Icon(Icons.logout_outlined), text: "Log Out"),
+            AccountItems(child:
+            Icon(Icons.logout_outlined,color:BlocProvider.of<SettingsCubit>(context).state.isDarkMode ?
+            Colors.white : Colors.black), text: "Log Out"),
             Divider(
               color: Colors.black,
               thickness: 2,

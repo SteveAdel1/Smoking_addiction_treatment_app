@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../config/constants/constants.dart';
+import '../../settings/view_model/settings_cubit.dart';
 
 class CurrentStreakWidget extends StatelessWidget {
   const CurrentStreakWidget({ required this.title ,
@@ -31,8 +32,9 @@ class CurrentStreakWidget extends StatelessWidget {
             Text(
               text ,
               style: Constants.theme.textTheme.bodyLarge
-                  ?.copyWith(
-                  fontSize: 40, color: Color(0xFFFFFFFF)),
+                  ?.copyWith( color:BlocProvider.of<SettingsCubit>(context).state.isDarkMode ?
+              Colors.white : Colors.black,
+                  fontSize: 40,),
               textAlign: TextAlign.center,
             ),
             const Spacer(),
@@ -40,8 +42,9 @@ class CurrentStreakWidget extends StatelessWidget {
               title,
               style: Constants.theme.textTheme.bodyMedium
                   ?.copyWith(
-                  fontSize: 15,
-                  color: const Color(0xFFFFFFFF)),
+                  color:BlocProvider.of<SettingsCubit>(context).state.isDarkMode ?
+                  Colors.white : Colors.black,
+                  fontSize: 15,),
               textAlign: TextAlign.center,
             )
           ],

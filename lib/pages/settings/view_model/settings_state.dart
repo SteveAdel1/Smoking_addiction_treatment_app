@@ -1,7 +1,6 @@
+
 import 'package:flutter/material.dart';
-
-abstract class SettingsState {}
-
-class LightState  extends SettingsState{}
-
-class DarkState extends SettingsState {}
+class ThemeState {
+  final bool isDarkMode;
+  ThemeState({required this.isDarkMode});
+}

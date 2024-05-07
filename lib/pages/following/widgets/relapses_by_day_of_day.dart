@@ -2,6 +2,8 @@ import 'package:app/config/constants/constants.dart';
 import 'package:app/pages/following/widgets/relepses_dayes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../settings/view_model/settings_cubit.dart';
 
 class RelapsesByDayOfDay extends StatelessWidget {
   const RelapsesByDayOfDay({super.key});
@@ -23,13 +25,15 @@ class RelapsesByDayOfDay extends StatelessWidget {
                     child: Text(
                       "Relapses Count:",
                       style: Constants.theme.textTheme.bodyMedium
-                          ?.copyWith(fontSize: 15),
+                          ?.copyWith(fontSize: 15,color:BlocProvider.of<SettingsCubit>(context).state.isDarkMode ?
+                      Colors.white : Colors.black ),
                     )),
                 Spacer(),
                 Container(
                     padding: EdgeInsets.only(top: 10, right: 10),
                     child: Text("0",
-                        style: Constants.theme.textTheme.bodyMedium
+                        style: Constants.theme.textTheme.bodyMedium?.copyWith(color:BlocProvider.of<SettingsCubit>(context).state.isDarkMode ?
+                        Colors.white : Colors.black )
                             ?.copyWith(fontSize: 15)))
               ],
             ),
@@ -39,13 +43,14 @@ class RelapsesByDayOfDay extends StatelessWidget {
               endIndent: 10,
               indent: 10,
             ),
-            RelapsesDays(dayName: "sun",dayCount: "0",),
-            RelapsesDays(dayName: "sun",dayCount: "0",),
-            RelapsesDays(dayName: "sun",dayCount: "0",),
-            RelapsesDays(dayName: "sun",dayCount: "0",),
-            RelapsesDays(dayName: "sun",dayCount: "0",),
-            RelapsesDays(dayName: "sun",dayCount: "0",),
-            RelapsesDays(dayName: "sun",dayCount: "0",),
+            RelapsesDays(dayName: "Sut",dayCount: "0",),
+            RelapsesDays(dayName: "Sun",dayCount: "0",),
+            RelapsesDays(dayName: "Mon",dayCount: "0",),
+            RelapsesDays(dayName: "Tue",dayCount: "0",),
+            RelapsesDays(dayName: "Wed",dayCount: "0",),
+            RelapsesDays(dayName: "Thu",dayCount: "0",),
+            RelapsesDays(dayName: "Fri",dayCount: "0",),
+
           ],
         ),
       ),

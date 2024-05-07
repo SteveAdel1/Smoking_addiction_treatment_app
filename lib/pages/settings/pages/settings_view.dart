@@ -63,7 +63,7 @@ class SettingsView extends StatelessWidget {
             ),
             CustomDropdown(
               items: Themes,
-              initialItem: vm.isDark() ? "Dark" : "Light",
+              initialItem: "Dark",
               decoration: CustomDropdownDecoration(
                // closedFillColor:
                 //vm.isDark() ? const Color(0xFF141922) :const Color(0xFFFFFFFF),

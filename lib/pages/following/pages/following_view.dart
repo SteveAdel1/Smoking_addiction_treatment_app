@@ -3,7 +3,9 @@ import 'package:app/config/widgets/setting_bottom.dart';
 import 'package:app/pages/following/widgets/add_sheet_widget.dart';
 import 'package:app/pages/following/widgets/calender_widget.dart';
 import 'package:app/pages/following/widgets/current_streak_widget.dart';
+import 'package:app/pages/settings/view_model/settings_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../widgets/relapses_by_day_of_day.dart';
 
@@ -31,8 +33,9 @@ class _FollowingViewState extends State<FollowingView> {
               child: const Icon(Icons.settings)),
         ),
         title:
-            const Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-          Text("Follow Your Reboot"),
+             Row(mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+          Text("Follow Your Reboot",),
         ]),
       ),
       body: SingleChildScrollView(
@@ -52,14 +55,16 @@ class _FollowingViewState extends State<FollowingView> {
                     Icon(
                       Icons.notes_outlined,
                       size: 30,
-                      color: Colors.white,
+                        color:BlocProvider.of<SettingsCubit>(context).state.isDarkMode ?
+                        Colors.white : Colors.black
                     ),
                     Container(
                         padding:
                             EdgeInsets.symmetric(horizontal: 15, vertical: 5),
                         child: Text(
                           "Dairies",
-                          style: Constants.theme.textTheme.bodyMedium,
+                          style: Constants.theme.textTheme.bodyMedium ?.copyWith(color:BlocProvider.of<SettingsCubit>(context).state.isDarkMode ?
+                          Colors.white : Colors.black ),
                         ))
                   ],
                 ),
@@ -68,7 +73,8 @@ class _FollowingViewState extends State<FollowingView> {
                 padding: const EdgeInsets.only(top: 15.0, left: 5),
                 child: Text(
                   "Current Streak",
-                  style: Constants.theme.textTheme.bodyMedium,
+                  style: Constants.theme.textTheme.bodyMedium ?.copyWith(color:BlocProvider.of<SettingsCubit>(context).state.isDarkMode ?
+                  Colors.white : Colors.black ),
                 ),
               ),
               Row(
@@ -94,7 +100,7 @@ class _FollowingViewState extends State<FollowingView> {
                   showModalBottomSheet(
                     backgroundColor: Colors.transparent,
                     context: context,
-                    builder: (context) => AddSheetWidget(),
+                    builder: (context) => SettingButton(),
                   );
                 },
                 child: Container(
@@ -113,14 +119,16 @@ class _FollowingViewState extends State<FollowingView> {
                         borderRadius: BorderRadius.circular(20)),
                     child: Text(
                       "Daily Follow-up",
-                      style: Constants.theme.textTheme.bodyLarge,
+                      style: Constants.theme.textTheme.bodyLarge?.copyWith(color:BlocProvider.of<SettingsCubit>(context).state.isDarkMode ?
+                      Colors.white : Colors.black ),
                     )),
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 15.0, left: 5),
                 child: Text(
                   "Reboot Calender",
-                  style: Constants.theme.textTheme.bodyMedium,
+                  style: Constants.theme.textTheme.bodyMedium?.copyWith(color:BlocProvider.of<SettingsCubit>(context).state.isDarkMode ?
+                  Colors.white : Colors.black ),
                 ),
               ),
               CalenderWidget(),
@@ -128,7 +136,9 @@ class _FollowingViewState extends State<FollowingView> {
                 padding: const EdgeInsets.only(top: 15.0, left: 5),
                 child: Text(
                   "Relapses By Day-of-Day",
-                  style: Constants.theme.textTheme.bodyMedium,
+                  style: Constants.theme.textTheme.bodyMedium?.copyWith(
+                      color:BlocProvider.of<SettingsCubit>(context).state.isDarkMode ?
+                  Colors.white : Colors.black ),
                 ),
               ),
               RelapsesByDayOfDay()
