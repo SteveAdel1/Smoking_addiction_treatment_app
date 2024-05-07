@@ -12,11 +12,18 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          leadingWidth: 15,
+          leadingWidth: 30, // Adjust the width of the leading icon
+          centerTitle: false,
           leading:GestureDetector(
-              onTap: () =>  SettingButton(),
+              onTap: () {
+                showModalBottomSheet(
+                  backgroundColor: Colors.transparent,
+                  context: context,
+                  builder: (context) => SettingButton(),
+                );
+              },
               child: Icon(
-                Icons.menu,  // add custom icons also
+                Icons.settings,  // add custom icons also
               )
           ),
           title: const Row(

@@ -21,17 +21,21 @@ class _FollowingViewState extends State<FollowingView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leadingWidth: 15,
-        leading: InkWell(onTap: () {
-          showModalBottomSheet(
-            backgroundColor: Colors.transparent,
-            context: context,
-            builder: (context) => SettingButton(),);
-        },
-          child: Container(
-              padding: const EdgeInsets.only(left: 15),
-              child: const Icon(Icons.settings)),
+        leadingWidth: 30, // Adjust the width of the leading icon
+        centerTitle: false,
+        leading:GestureDetector(
+            onTap: () {
+              showModalBottomSheet(
+                backgroundColor: Colors.transparent,
+                context: context,
+                builder: (context) => SettingButton(),
+              );
+            },
+            child: Icon(
+              Icons.settings,  // add custom icons also
+            )
         ),
+
         title:
              Row(mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -100,7 +104,7 @@ class _FollowingViewState extends State<FollowingView> {
                   showModalBottomSheet(
                     backgroundColor: Colors.transparent,
                     context: context,
-                    builder: (context) => SettingButton(),
+                    builder: (context) => AddSheetWidget(),
                   );
                 },
                 child: Container(
@@ -108,8 +112,8 @@ class _FollowingViewState extends State<FollowingView> {
                     padding: EdgeInsets.symmetric(horizontal: 5, vertical: 15),
                     width: Constants.mediaQuery.width,
                     decoration: BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
+                        boxShadow:const[
+                         BoxShadow(
                             color: Colors.white,
                             blurRadius: 5,
                             //offset: Offset(0, 0), // Shadow position
